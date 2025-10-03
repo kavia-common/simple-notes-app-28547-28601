@@ -9,6 +9,10 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./tailwind.css";
 
+/**
+ * PUBLIC_INTERFACE
+ * links: Global links for fonts. Route components can add additional CSS via their own links().
+ */
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -30,6 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Note: Any route-specific scripts (like /assets/app.js) should be added by the route via useEffect.
+            We keep <Scripts /> here to inject Remix's scripts. */}
       </head>
       <body>
         {children}
