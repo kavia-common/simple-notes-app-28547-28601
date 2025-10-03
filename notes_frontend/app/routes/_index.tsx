@@ -5,6 +5,7 @@ import { useLocation } from "@remix-run/react";
 /**
  * PUBLIC_INTERFACE
  * links: Attach screen-specific stylesheets for the Home screen.
+ * Ensures the static assets are referenced from /public (served at /assets/*).
  */
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "/assets/common.css" },
@@ -37,6 +38,7 @@ export default function Index() {
   }, [location.key]);
 
   // JSX translation of assets/home-screen-125-171.html
+  // Note: Image paths are under /public/images so we reference them as /images/*
   return (
     <div className="screen-host">
       {/* Root frame */}

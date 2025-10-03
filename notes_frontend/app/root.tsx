@@ -26,6 +26,10 @@ export const links: LinksFunction = () => [
   },
 ];
 
+/**
+ * PUBLIC_INTERFACE
+ * Layout: Root HTML skeleton for the app. Ensures <Links/> is rendered so route-provided CSS loads.
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -46,6 +50,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * PUBLIC_INTERFACE
+ * App: Root outlet for nested routes.
+ */
 export default function App() {
   return <Outlet />;
 }
